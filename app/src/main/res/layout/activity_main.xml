@@ -6,18 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/division"
+        style="@style/ActionButton"
+        android:layout_marginTop="50dp"
+        android:text="/"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/divisionWithRemainder"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <Button
+        android:id="@+id/plusMinus"
+        style="@style/NumberButton"
+        android:layout_marginTop="50dp"
+        android:text="+/-"
+        app:layout_constraintEnd_toStartOf="@+id/divisionWithRemainder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/AC"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <Button
+        android:id="@+id/AC"
+        style="@style/NumberButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:text="AC"
+        app:layout_constraintEnd_toStartOf="@+id/plusMinus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <Button
+        android:id="@+id/divisionWithRemainder"
+        style="@style/NumberButton"
+        android:layout_marginTop="50dp"
+        android:text="%"
+        app:layout_constraintEnd_toStartOf="@+id/division"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/plusMinus"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
     <TextView
         android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="366dp"
+        android:layout_height="98dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="83dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="25dp"
         android:background="@drawable/rectangle_textview"
+        android:fontFamily="@font/digital"
         android:gravity="left|center_vertical"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -25,188 +64,229 @@
         android:paddingEnd="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="8dp"
+        android:maxLines="1"
         android:textSize="64sp"
-        android:fontFamily="@font/digital"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_below="@id/text"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="63dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <Button
+        android:id="@+id/seven"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="7"
+        app:layout_constraintEnd_toStartOf="@+id/eight"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text">
+        app:layout_constraintTop_toBottomOf="@+id/AC" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/eight"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="8"
+        app:layout_constraintEnd_toStartOf="@+id/nine"
+        app:layout_constraintStart_toEndOf="@+id/seven"
+        app:layout_constraintTop_toBottomOf="@+id/plusMinus" />
 
-            <Button
-                android:id="@+id/AC"
-                style="@style/NumberButton"
-                android:text="AC" />
+    <Button
+        android:id="@+id/multiplication"
+        style="@style/ActionButton"
+        android:layout_marginTop="16dp"
+        android:text="*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nine"
+        app:layout_constraintTop_toBottomOf="@+id/division" />
 
-            <Button
-                android:id="@+id/plusMinus"
-                style="@style/NumberButton"
-                android:text="+/-" />
+    <Button
+        android:id="@+id/nine"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="9"
+        app:layout_constraintEnd_toStartOf="@+id/multiplication"
+        app:layout_constraintStart_toEndOf="@+id/eight"
+        app:layout_constraintTop_toBottomOf="@+id/divisionWithRemainder" />
 
-            <Button
-                android:id="@+id/divisionWithRemainder"
-                style="@style/NumberButton"
-                android:text="%" />
+    <Button
+        android:id="@+id/four"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="4"
+        app:layout_constraintEnd_toStartOf="@+id/five"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seven" />
 
-            <Button
-                android:id="@+id/division"
-                style="@style/ActionButton"
-                android:text="/" />
-        </LinearLayout>
+    <Button
+        android:id="@+id/minus"
+        style="@style/ActionButton"
+        android:layout_marginTop="16dp"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/six"
+        app:layout_constraintTop_toBottomOf="@+id/multiplication" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/five"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="5"
+        app:layout_constraintEnd_toStartOf="@+id/six"
+        app:layout_constraintStart_toEndOf="@+id/four"
+        app:layout_constraintTop_toBottomOf="@+id/eight" />
 
-            <Button
-                android:id="@+id/seven"
-                style="@style/NumberButton"
-                android:text="7" />
+    <Button
+        android:id="@+id/six"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="6"
+        app:layout_constraintEnd_toStartOf="@+id/minus"
+        app:layout_constraintStart_toEndOf="@+id/five"
+        app:layout_constraintTop_toBottomOf="@+id/nine" />
 
-            <Button
-                android:id="@+id/eight"
-                style="@style/NumberButton"
-                android:text="8" />
+    <Button
+        android:id="@+id/plus"
+        style="@style/ActionButton"
+        android:layout_marginTop="16dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/three"
+        app:layout_constraintTop_toBottomOf="@+id/minus" />
 
-            <Button
-                android:id="@+id/nine"
-                style="@style/NumberButton"
-                android:text="9" />
+    <Button
+        android:id="@+id/two"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="2"
+        app:layout_constraintEnd_toStartOf="@+id/three"
+        app:layout_constraintStart_toEndOf="@+id/one"
+        app:layout_constraintTop_toBottomOf="@+id/five" />
 
-            <Button
-                android:id="@+id/multiplication"
-                style="@style/ActionButton"
-                android:text="*" />
-        </LinearLayout>
+    <Button
+        android:id="@+id/three"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:text="3"
+        app:layout_constraintEnd_toStartOf="@+id/plus"
+        app:layout_constraintStart_toEndOf="@+id/two"
+        app:layout_constraintTop_toBottomOf="@+id/six" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/one"
+        style="@style/NumberButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="1"
+        app:layout_constraintEnd_toStartOf="@+id/two"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/four" />
 
-            <Button
-                android:id="@+id/four"
-                style="@style/NumberButton"
-                android:text="4" />
+    <Button
+        android:id="@+id/zero"
+        style="@style/NumberButton"
+        android:layout_width="176dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="0"
+        android:textColor="#3A4E89"
+        app:layout_constraintEnd_toStartOf="@+id/comma"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/one" />
 
-            <Button
-                android:id="@+id/five"
-                style="@style/NumberButton"
-                android:text="5" />
+    <Button
+        android:id="@+id/equals"
+        style="@style/ActionButton"
+        android:layout_marginTop="15dp"
+        android:text="="
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/comma"
+        app:layout_constraintTop_toBottomOf="@+id/plus" />
 
-            <Button
-                android:id="@+id/six"
-                style="@style/NumberButton"
-                android:text="6" />
-
-            <Button
-                android:id="@+id/minus"
-                style="@style/ActionButton"
-                android:text="-" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/one"
-                style="@style/NumberButton"
-                android:text="1" />
-
-            <Button
-                android:id="@+id/two"
-                style="@style/NumberButton"
-                android:text="2" />
-
-            <Button
-                android:id="@+id/three"
-                style="@style/NumberButton"
-                android:text="3" />
-
-            <Button
-                android:id="@+id/plus"
-                style="@style/ActionButton"
-                android:text="+" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/zero"
-                android:layout_width="108dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/big_white_button"
-                android:text="0"
-                android:textColor="#3A4E89" />
-
-            <Button
-                android:id="@+id/comma"
-                style="@style/NumberButton"
-                android:layout_width="5dp"
-                android:text="." />
-
-            <Button
-                android:id="@+id/equals"
-                style="@style/ActionButton"
-                android:layout_width="5dp"
-                android:text="=" />
-
-        </LinearLayout>
-    </LinearLayout>
+    <Button
+        android:id="@+id/comma"
+        style="@style/NumberButton"
+        android:layout_marginTop="15dp"
+        android:text="."
+        app:layout_constraintEnd_toStartOf="@+id/equals"
+        app:layout_constraintStart_toEndOf="@+id/zero"
+        app:layout_constraintTop_toBottomOf="@+id/three" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginRight="271dp"
         android:layout_marginBottom="24dp"
-        android:text="Calculator"
         android:fontFamily="@font/museo"
+        android:text="Calculator"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.91" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.54
+" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
