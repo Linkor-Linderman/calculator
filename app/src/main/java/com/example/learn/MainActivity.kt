@@ -2,60 +2,63 @@ package com.example.learn
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
+import com.example.learn.databinding.ActivityMainBinding
 import java.lang.Exception
 import net.objecthunter.exp4j.ExpressionBuilder
-import java.util.Arrays.toString
 
 class MainActivity : AppCompatActivity() {
+
     private var flag = false //переменная для проверки на возможность ввода символов(+-/x)
     private var resultString = ""
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val numberIds = listOf(zero, one, two, three, four, five, six, seven, eight, nine)
-        val actionsIds = listOf(minus,division,divisionWithRemainder,plus,multiplication,comma)
+        val numberIds = listOf(binding.zero, binding.one, binding.two, binding.three, binding.four, binding.five, binding.six, binding.seven, binding.eight, binding.nine)
+        val actionsIds = listOf(binding.minus,binding.division,binding.divisionWithRemainder,binding.plus,binding.multiplication,binding.comma)
         //Обработка цифр и символов
-        numberIds.forEach { btn-> btn.setOnClickListener { addNumOrAction(btn.text.toString(), true) } }
-        actionsIds.forEach { btn-> btn.setOnClickListener { addNumOrAction(btn.text.toString(), false) } }
+        numberIds.forEach { btn-> btn.setOnClickListener { addNum(btn.text.toString()) } }
+        actionsIds.forEach { btn-> btn.setOnClickListener { addAction(btn.text.toString()) } }
 
         // Обработка кнопки равно
-        equals.setOnClickListener {
+        binding.equals.setOnClickListener {
             try {
-                val ex = ExpressionBuilder(text.text.toString()).build()
+                val ex = ExpressionBuilder(binding.text.text.toString()).build()
                 val ans = ex.evaluate()
-                var ansLong = ans.toLong()
+                val ansLong = ans.toLong()
                 if(ans ==ansLong.toDouble()){
-                    text.text = ansLong.toString()
-                    resultString = text.text.toString()
+                    binding.text.text = ansLong.toString()
+                    resultString = binding.text.text.toString()
                 }
                 else{
-                    text.text = ans.toString()
-                    resultString = text.text.toString()
+                    binding.text.text = ans.toString()
+                    resultString = binding.text.text.toString()
                 }
             }
             catch (e:Exception){
-                val toast = Toast.makeText(getApplicationContext(),
+                val toast = Toast.makeText(
+                    this,
                     "Что-то не так! Попробуйте изменить ваше выражение", Toast.LENGTH_LONG)
                 toast.show()
             }
         }
 
         //All clean
-        AC.setOnClickListener {
-            text.text = ""
+        binding.AC.setOnClickListener {
+            binding.text.text = ""
             resultString = ""
         }
+
         //plus/minus
-        plusMinus.setOnClickListener {
+        binding.plusMinus.setOnClickListener {
             if(resultString.isNotEmpty()){
-            var result = text.text.toString().toDouble()
-            text.text = (-result).toString()
-            resultString = text.text.toString()}
+                val result = binding.text.text.toString().toDouble()
+                binding.text.text = (-result).toString()
+                resultString = binding.text.text.toString()}
         }
     }
 
@@ -65,27 +68,29 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onRestoreInstanceState(savedInstanceState:Bundle){
         super.onRestoreInstanceState(savedInstanceState)
-        text.text  = savedInstanceState.getString("result")
-        resultString = text.text.toString()
+        binding.text.text  = savedInstanceState.getString("result")
+        resultString = binding.text.text.toString()
     }
 
-    private fun addNumOrAction(append: String, isNum:Boolean){
-        if(resultString =="" && isNum){
+    private fun addNum(append: String){
+        if(resultString ==""){
             resultString += append
-            text.text = ""
-            text.append(resultString)
+            binding.text.text = ""
+            binding.text.append(resultString)
             flag = true
         }
-        else if(isNum){
+        else {
             resultString += append
-            text.text = ""
-            text.append(resultString)
+            binding.text.text = ""
+            binding.text.append(resultString)
             flag = true
         }
-        else if(resultString.isNotEmpty() && flag && !isNum){
+    }
+    private fun addAction(append: String){
+        if(resultString.isNotEmpty() && flag){
             resultString += append
-            text.text = ""
-            text.append(resultString)
+            binding.text.text = ""
+            binding.text.append(resultString)
             flag = false
         }
     }

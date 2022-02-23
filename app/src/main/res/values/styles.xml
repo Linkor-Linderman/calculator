@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -8,18 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="NumberButton">
-        <item name="android:layout_width">80dp</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/button_number_back</item>
         <item name="android:textColor">#3A4E89</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:elevation" tools:targetApi="lollipop">4dp</item>
     </style>
     <style name="ActionButton">
-        <item name="android:layout_width">80dp</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/button_action_back</item>
         <item name="android:textColor">#F1F3F6</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:elevation" tools:targetApi="lollipop">4dp</item>
     </style>
 
 </resources>
