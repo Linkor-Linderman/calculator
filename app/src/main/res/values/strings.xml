@@ -20,4 +20,5 @@
     <string name="comma">.</string>
     <string name="equals">=</string>
     <string name="calculator">Calculator</string>
+    <string name="warning">Что-то не так! Попробуйте изменить ваше выражение</string>
 </resources>

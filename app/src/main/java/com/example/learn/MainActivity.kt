@@ -2,6 +2,7 @@ package com.example.learn
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import com.example.learn.databinding.ActivityMainBinding
 import java.lang.Exception
@@ -18,31 +19,32 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val numberIds = listOf(binding.zero, binding.one, binding.two, binding.three, binding.four, binding.five, binding.six, binding.seven, binding.eight, binding.nine)
-        val actionsIds = listOf(binding.minus,binding.division,binding.divisionWithRemainder,binding.plus,binding.multiplication,binding.comma)
+        val numberIds = binding.groupOfNumbers.getReferencedIds()
+        val actionsIds = binding.groupOfAction.getReferencedIds()
+
         //Обработка цифр и символов
-        numberIds.forEach { btn-> btn.setOnClickListener { addNum(btn.text.toString()) } }
-        actionsIds.forEach { btn-> btn.setOnClickListener { addAction(btn.text.toString()) } }
+        numberIds.forEach { btn-> (findViewById<Button>(btn)).setOnClickListener { addNum((findViewById<Button>(btn)).text.toString()) } }
+        actionsIds.forEach { btn-> (findViewById<Button>(btn)).setOnClickListener { addAction((findViewById<Button>(btn)).text.toString()) } }
 
         // Обработка кнопки равно
         binding.equals.setOnClickListener {
             try {
-                val ex = ExpressionBuilder(binding.text.text.toString()).build()
-                val ans = ex.evaluate()
-                val ansLong = ans.toLong()
-                if(ans ==ansLong.toDouble()){
-                    binding.text.text = ansLong.toString()
+                val expression = ExpressionBuilder(binding.text.text.toString()).build()
+                val answer = expression.evaluate()
+                val answerLong = answer.toLong()
+                if(answer==answerLong.toDouble()){
+                    binding.text.text = answerLong.toString()
                     resultString = binding.text.text.toString()
                 }
                 else{
-                    binding.text.text = ans.toString()
+                    binding.text.text = answer.toString()
                     resultString = binding.text.text.toString()
                 }
             }
             catch (e:Exception){
+                val warningMessage: String = getString(R.string.warning)
                 val toast = Toast.makeText(
-                    this,
-                    "Что-то не так! Попробуйте изменить ваше выражение", Toast.LENGTH_LONG)
+                    this, warningMessage, Toast.LENGTH_LONG)
                 toast.show()
             }
         }
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addNum(append: String){
-        if(resultString ==""){
+        if(resultString.isEmpty()){
             resultString += append
             binding.text.text = ""
             binding.text.append(resultString)
