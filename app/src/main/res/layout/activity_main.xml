@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="0dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginRight="8dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -34,65 +39,57 @@
     <Button
         android:id="@+id/AC"
         style="@style/NumberButton"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginBottom="8dp"
         android:text="@string/ac"
         app:layout_constraintBottom_toTopOf="@+id/seven"
         app:layout_constraintEnd_toStartOf="@+id/plusMinus"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.29000002"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
         android:id="@+id/plusMinus"
         style="@style/NumberButton"
-        android:layout_marginBottom="8dp"
         android:text="@string/plusMinus"
-        app:layout_constraintBottom_toTopOf="@+id/eight"
+        app:layout_constraintBottom_toBottomOf="@+id/AC"
         app:layout_constraintEnd_toStartOf="@+id/divisionWithRemainder"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/AC"
         app:layout_constraintTop_toTopOf="@+id/AC"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
         android:id="@+id/eight"
         style="@style/NumberButton"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/eight"
-        app:layout_constraintBottom_toTopOf="@+id/five"
+        app:layout_constraintBottom_toBottomOf="@+id/seven"
         app:layout_constraintEnd_toStartOf="@+id/nine"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/seven"
-        app:layout_constraintTop_toBottomOf="@+id/plusMinus" />
+        app:layout_constraintTop_toTopOf="@+id/seven" />
 
     <Button
         android:id="@+id/two"
         style="@style/NumberButton"
-        android:layout_marginTop="16dp"
         android:text="@string/two"
         app:layout_constraintBottom_toBottomOf="@+id/one"
         app:layout_constraintEnd_toStartOf="@+id/three"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/one"
-        app:layout_constraintTop_toBottomOf="@+id/five" />
+        app:layout_constraintTop_toTopOf="@+id/one" />
 
     <Button
         android:id="@+id/five"
         style="@style/NumberButton"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/five"
-        app:layout_constraintBottom_toTopOf="@+id/two"
+        app:layout_constraintBottom_toBottomOf="@+id/four"
         app:layout_constraintEnd_toStartOf="@+id/six"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/four"
-        app:layout_constraintTop_toBottomOf="@+id/eight" />
+        app:layout_constraintTop_toTopOf="@+id/four" />
 
     <Button
         android:id="@+id/divisionWithRemainder"
@@ -105,22 +102,20 @@
         app:layout_constraintStart_toEndOf="@+id/plusMinus"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.29000002"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
         android:id="@+id/division"
         style="@style/ActionButton"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
         android:layout_marginBottom="8dp"
         android:text="@string/division"
         app:layout_constraintBottom_toTopOf="@+id/multiplication"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/divisionWithRemainder"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.29000002"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
         android:id="@+id/nine"
@@ -137,28 +132,24 @@
     <Button
         android:id="@+id/seven"
         style="@style/NumberButton"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/seven"
         app:layout_constraintBottom_toTopOf="@+id/four"
         app:layout_constraintEnd_toStartOf="@+id/eight"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/AC" />
 
     <Button
         android:id="@+id/multiplication"
         style="@style/ActionButton"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
         android:layout_marginBottom="8dp"
         android:text="@string/multiplication"
         app:layout_constraintBottom_toTopOf="@+id/minus"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/nine"
         app:layout_constraintTop_toBottomOf="@+id/division" />
@@ -178,28 +169,24 @@
     <Button
         android:id="@+id/four"
         style="@style/NumberButton"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/four"
         app:layout_constraintBottom_toTopOf="@+id/one"
         app:layout_constraintEnd_toStartOf="@+id/five"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/seven" />
 
     <Button
         android:id="@+id/minus"
         style="@style/ActionButton"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
         android:layout_marginBottom="8dp"
         android:text="@string/minus"
         app:layout_constraintBottom_toTopOf="@+id/plus"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/six"
         app:layout_constraintTop_toBottomOf="@+id/multiplication" />
@@ -220,12 +207,10 @@
         android:id="@+id/plus"
         style="@style/ActionButton"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
         android:layout_marginBottom="8dp"
         android:text="@string/plus"
         app:layout_constraintBottom_toTopOf="@+id/equals"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/three"
         app:layout_constraintTop_toBottomOf="@+id/minus" />
@@ -233,16 +218,14 @@
     <Button
         android:id="@+id/one"
         style="@style/NumberButton"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/one"
         app:layout_constraintBottom_toTopOf="@+id/zero"
         app:layout_constraintEnd_toStartOf="@+id/two"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/four" />
 
     <Button
@@ -302,7 +285,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.523" />
 
@@ -332,7 +315,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="672dp" />
+        app:layout_constraintGuide_end="59dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -345,18 +328,15 @@
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="399dp" />
+        app:layout_constraintGuide_end="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="23dp" />
+        app:layout_constraintGuide_begin="18dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
