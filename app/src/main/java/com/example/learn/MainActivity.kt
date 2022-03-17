@@ -6,18 +6,19 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.learn.databinding.ActivityMainBinding
 import java.lang.Exception
-import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : AppCompatActivity() {
 
     private var flag = false //переменная для проверки на возможность ввода символов(+-/x)
     private var resultString = ""
     private lateinit var binding: ActivityMainBinding
+    var myModel: Model? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        myModel = Model()
 
         val numberIds = binding.groupOfNumbers.getReferencedIds()
         val actionsIds = binding.groupOfAction.getReferencedIds()
@@ -29,17 +30,9 @@ class MainActivity : AppCompatActivity() {
         // Обработка кнопки равно
         binding.equals.setOnClickListener {
             try {
-                val expression = ExpressionBuilder(binding.text.text.toString()).build()
-                val answer = expression.evaluate()
-                val answerLong = answer.toLong()
-                if(answer==answerLong.toDouble()){
-                    binding.text.text = answerLong.toString()
-                    resultString = binding.text.text.toString()
-                }
-                else{
-                    binding.text.text = answer.toString()
-                    resultString = binding.text.text.toString()
-                }
+                val answer = myModel!!.calculate(binding.text.text.toString())
+                binding.text.text = answer
+                resultString = binding.text.text.toString()
             }
             catch (e:Exception){
                 val warningMessage: String = getString(R.string.warning)
@@ -57,10 +50,8 @@ class MainActivity : AppCompatActivity() {
 
         //plus/minus
         binding.plusMinus.setOnClickListener {
-            if(resultString.isNotEmpty()){
-                val result = binding.text.text.toString().toDouble()
-                binding.text.text = (-result).toString()
-                resultString = binding.text.text.toString()}
+            binding.text.text = myModel!!.signChange( binding.text.text.toString())
+            resultString = binding.text.text.toString()
         }
     }
 

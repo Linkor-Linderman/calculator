@@ -30,9 +30,9 @@
         android:paddingBottom="8dp"
         android:textSize="64sp"
         app:layout_constraintBottom_toTopOf="@+id/plusMinus"
-        app:layout_constraintEnd_toEndOf="@+id/division"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/AC"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded" />
 
@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/plusMinus"
-        style="@style/NumberButton"
+        style="@style/NumberSecondRowButton"
         android:text="@string/plusMinus"
         app:layout_constraintBottom_toBottomOf="@+id/AC"
         app:layout_constraintEnd_toStartOf="@+id/divisionWithRemainder"
@@ -63,7 +63,7 @@
 
     <Button
         android:id="@+id/eight"
-        style="@style/NumberButton"
+        style="@style/NumberSecondRowButton"
         android:text="@string/eight"
         app:layout_constraintBottom_toBottomOf="@+id/seven"
         app:layout_constraintEnd_toStartOf="@+id/nine"
@@ -73,7 +73,7 @@
 
     <Button
         android:id="@+id/two"
-        style="@style/NumberButton"
+        style="@style/NumberSecondRowButton"
         android:text="@string/two"
         app:layout_constraintBottom_toBottomOf="@+id/one"
         app:layout_constraintEnd_toStartOf="@+id/three"
@@ -83,7 +83,7 @@
 
     <Button
         android:id="@+id/five"
-        style="@style/NumberButton"
+        style="@style/NumberSecondRowButton"
         android:text="@string/five"
         app:layout_constraintBottom_toBottomOf="@+id/four"
         app:layout_constraintEnd_toStartOf="@+id/six"
@@ -230,12 +230,11 @@
 
     <Button
         android:id="@+id/comma"
-        style="@style/NumberButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        style="@style/TheLastRowButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/comma"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/three"
@@ -245,10 +244,11 @@
 
     <Button
         android:id="@+id/zero"
-        style="@style/NumberButton"
-        android:layout_width="170dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
+        style="@style/TheLastRowButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/zero"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/two"
@@ -259,13 +259,14 @@
 
     <Button
         android:id="@+id/equals"
-        style="@style/ActionButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        style="@style/TheLastRowButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_action_back"
         android:text="@string/equals"
+        android:textColor="#F1F3F6"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/plus"
         app:layout_constraintStart_toStartOf="@+id/plus"
@@ -276,15 +277,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="256dp"
-        android:layout_marginRight="256dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/museo"
         android:text="@string/calculator"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/text"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.523" />
@@ -336,7 +334,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="18dp" />
+        app:layout_constraintGuide_begin="15dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
