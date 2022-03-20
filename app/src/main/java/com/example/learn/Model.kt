@@ -1,5 +1,6 @@
 package com.example.learn
 import net.objecthunter.exp4j.ExpressionBuilder
+import java.lang.Exception
 
 class Model {
     private var flag = false //переменная для проверки на возможность ввода символов(+-/x)
@@ -17,10 +18,15 @@ class Model {
         }
     }
      fun signChange(resultString:String):String {
+         try {
          if (resultString.isNotEmpty()) {
              return (-resultString.toInt()).toString()
          }
          return resultString
+         }
+         catch (e: Exception){
+             return (-resultString.toDouble()).toString()
+         }
      }
     fun addNum(append: String):String{
         return if(resultString.isEmpty()){
@@ -40,5 +46,9 @@ class Model {
             return resultString
         }
         return ""
+    }
+    fun clean():String{
+        resultString = ""
+        return resultString
     }
 }

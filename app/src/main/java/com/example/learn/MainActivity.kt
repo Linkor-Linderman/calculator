@@ -49,8 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         //All clean
         binding.AC.setOnClickListener {
-            binding.text.text = ""
-            myModel!!.resultString = ""
+            binding.text.text = myModel!!.clean()
         }
 
         //plus/minus
